@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="de.obscure.webcam.viewmodels.SharedViewmodel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+        app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
+        tools:context="de.obscure.webcam.WebcamActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/Theme.AppCompat.DayNight">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                style="@style/CustomTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pagerImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <TextView
+            android:id="@+id/textDate"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayDate}"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toStartOf="@id/guidelineVertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineHorizontal"
+            tools:text="15.11.2020 um 20:10 Uhr" />
+
+        <TextView
+            android:id="@+id/textStatusSkilift"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="4dp"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displaySkilift}"
+            android:textAlignment="textEnd"
+            android:textColor="@{viewmodel.displaySkiliftColor}"
+            android:visibility="@{viewmodel.displaySkiliftVisibility}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guidelineVertical"
+            tools:text="Skilift geöffnet" />
+
+        <ImageView
+            android:id="@+id/imageHydro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/textHumidity"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@+id/imageWind"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/textDate"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_max="88dp"
+            app:srcCompat="@drawable/icon_hydro" />
+
+        <ImageView
+            android:id="@+id/imageWind"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:baselineAlignBottom="false"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/textWind"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageHydro"
+            app:layout_constraintTop_toBottomOf="@+id/textDate"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_max="88dp"
+            app:srcCompat="@drawable/icon_wind" />
+
+        <ImageView
+            android:id="@+id/imageTemperature"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/textTemperature"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@+id/imageHydro"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDate"
+            app:layout_constraintWidth_max="88dp"
+            app:srcCompat="@drawable/icon_temp" />
+
+        <ImageView
+            android:id="@+id/imageBaro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/textBaro"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@+id/imageRain24"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTemperature"
+            app:layout_constraintWidth_max="88dp"
+            app:srcCompat="@drawable/icon_baro" />
+
+        <ImageView
+            android:id="@+id/imageRain"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/textRain"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageRain24"
+            app:layout_constraintTop_toBottomOf="@+id/textWind"
+            app:layout_constraintWidth_max="88dp"
+            app:srcCompat="@drawable/icon_regen1" />
+
+        <TextView
+            android:id="@+id/textTemperature"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayTemperature}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/imageBaro"
+            app:layout_constraintEnd_toEndOf="@+id/imageTemperature"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageTemperature"
+            app:layout_constraintTop_toBottomOf="@+id/imageTemperature"
+            tools:text="20,0 °C" />
+
+        <TextView
+            android:id="@+id/textHumidity"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayHydro}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/imageRain24"
+            app:layout_constraintEnd_toEndOf="@+id/imageHydro"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageHydro"
+            app:layout_constraintTop_toBottomOf="@+id/imageHydro"
+            tools:text="93,0 %" />
+
+        <TextView
+            android:id="@+id/textWind"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayWind}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/imageRain"
+            app:layout_constraintEnd_toEndOf="@+id/imageWind"
+            app:layout_constraintStart_toStartOf="@+id/imageWind"
+            app:layout_constraintTop_toBottomOf="@+id/imageWind"
+            tools:text="5,0 km/h" />
+
+        <TextView
+            android:id="@+id/textBaro"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayBaro}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageBaro"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageBaro"
+            app:layout_constraintTop_toBottomOf="@+id/imageBaro"
+            tools:text="1024 hPa" />
+
+        <TextView
+            android:id="@+id/textrain24"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayRain24}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageRain24"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageRain24"
+            app:layout_constraintTop_toBottomOf="@+id/imageRain24"
+            tools:text="5,0 l/m²" />
+
+        <ImageView
+            android:id="@+id/imageRain24"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/textrain24"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@+id/imageRain"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageBaro"
+            app:layout_constraintTop_toBottomOf="@+id/textHumidity"
+            app:layout_constraintWidth_max="88dp"
+            app:srcCompat="@drawable/icon_regen24" />
+
+        <TextView
+            android:id="@+id/textRain"
+            style="@style/CustomTextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="@{viewmodel.displayRain}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageRain"
+            app:layout_constraintStart_toStartOf="@+id/imageRain"
+            app:layout_constraintTop_toBottomOf="@+id/imageRain"
+            tools:text="2,0 l/m²" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

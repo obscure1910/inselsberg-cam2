@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/overview">
+
+    <fragment
+        android:id="@+id/overview"
+        android:name="de.obscure.webcam.overview.OverviewFragment"
+        android:label="overview_fragment"
+        tools:layout="@layout/overview_fragment" >
+        <action
+            android:id="@+id/action_overview_to_statistic"
+            app:destination="@id/statistic"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_overview_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_overview_to_fullscreenFragment"
+            app:destination="@id/fullscreenFragment"
+            app:popUpTo="@id/fullscreenFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/statistic"
+        android:name="de.obscure.webcam.statistic.StatisticFragment"
+        android:label="StatisticFragment"
+        tools:layout="@layout/statistic_fragment">
+        <action
+            android:id="@+id/action_statistic_to_overview"
+            app:destination="@id/overview"
+            app:popUpTo="@id/overview"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <argument
+        android:name="selectedDate"
+        android:defaultValue="-1" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="de.obscure.webcam.setting.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment"/>
+    <fragment
+        android:id="@+id/fullscreenFragment"
+        android:name="de.obscure.webcam.fullscreen.FullscreenFragment"
+        android:label="FullscreenFragment"
+        tools:layout="@layout/fullscreen_fragment"/>
+</navigation>

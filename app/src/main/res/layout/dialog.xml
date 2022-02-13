@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainText"
+            android:textSize="@dimen/title_text_size"
+            android:text="Information" />
+
+        <TextView
+            android:id="@+id/dialog_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/mainText"
+            android:scrollbars="vertical"
+            android:text="Die App InselsbergCam existiert jetzt schon viele Jahre und in dieser Zeit wurden einige Feature umgesetzt als auch die App gepflegt. Das letzte Feature war die Zeitreise über die Statistik mit der man sich Bilder der letzten sieben Tage ansehen konnte. Viele weitere Feature sind denkbar wozu ich jedoch nicht ausreichend Zeit habe. Ich habe mich entschieden die App und das dazugehörige Backend nicht weiter zu pflegen. Der Dienst wird spätestens November 2022 beendet. Der Quellcode wird auf Github veröffentlicht und kann gerne verwendet werden falls jemand Interesse hat diesen Dienst anzubieten. Die Links dazu findet man in der Beschreibung im Google Play Store." />
+
+        <CheckBox
+            android:id="@+id/dialog_skip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bitte nicht nochmal anzeigen."
+            android:buttonTint="@color/mainText"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

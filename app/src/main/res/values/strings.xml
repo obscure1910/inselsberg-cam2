@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InselsbergCam</string>
+    <string name="display_skilift_open">Skilift geöffnet</string>
+    <string name="display_skilift_close">Skilift geschlossen</string>
+    <string name="display_temperature">%.1f °C</string>
+    <string name="display_baro">%.1f hPa</string>
+    <string name="display_hydro">%.1f %%</string>
+    <string name="display_rain">%.1f l/m²</string>
+    <string name="display_windgust">%.1f km/h</string>
+    <!-- marker view -->
+    <string name="time"><![CDATA[<b>Zeit:</b>]]></string>
+    <string name="temperature"><![CDATA[<b>Temperatur:</b>]]></string>
+    <string name="rain"><![CDATA[<b>Regen:</b>]]></string>
+
+</resources>

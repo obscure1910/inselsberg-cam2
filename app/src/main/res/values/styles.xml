@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryDarkColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="CustomHeadlineTextAppearance" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/CustomHeadlineTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/primaryTextColor</item>
+        <item name="tabTextColor">@color/secondaryLightColor</item>
+    </style>
+
+    <style name="CustomBottomNavigationView">
+        <item name="background">@color/primaryColor</item>
+        <item name="android:textSize">16sp</item>
+        <item name="itemIconTint">@drawable/bnv_item_selector</item>
+        <item name="itemTextColor">@drawable/bnv_item_selector</item>
+    </style>
+
+    <style name="CustomTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/mainText</item>
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMinTextSize">15sp</item>
+        <item name="autoSizeMaxTextSize">22sp</item>
+        <item name="autoSizeStepGranularity">1sp</item>
+    </style>
+
+    <style name="CustomRadioButtonAppearance" parent="Widget.AppCompat.CompoundButton.RadioButton">
+
+    </style>
+
+</resources>

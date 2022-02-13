@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="PF"
+            type="de.obscure.webcam.viewmodels.PreferredPhoto" />
+
+        <variable
+            name="viewmodel"
+            type="de.obscure.webcam.viewmodels.SharedViewmodel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/Theme.AppCompat.DayNight">
+
+            <LinearLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    style="@style/CustomHeadlineTextAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Einstellungen"
+                    tools:text="Einstellungen" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/mlt_primary_photo"
+            style="@style/CustomTextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="1sp"
+            android:text="Welches Bild soll standardmäßig beim Öffnen der App angezeigt werden?"
+            tools:text="Welches Bild soll standardmäßig beim Öffnen der App angezeigt werden?" />
+
+
+        <RadioGroup
+            android:id="@+id/rbg_preferred_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_skihang"
+                style="@style/CustomRadioButtonAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewmodel.preferredPhoto.equals(PF.SKIHANG)}"
+                android:onClick="@{(v) -> viewmodel.onPreferredPhoto(PF.SKIHANG)}"
+                android:text="Skihang"
+                android:textAppearance="@style/CustomTextAppearance"
+                app:buttonTint="@color/primaryDarkColor" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_panorama"
+                style="@style/CustomRadioButtonAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:checked="@{viewmodel.preferredPhoto.equals(PF.PANORAMA)}"
+                android:onClick="@{(v) -> viewmodel.onPreferredPhoto(PF.PANORAMA)}"
+                android:text="Panorama"
+                android:textAppearance="@style/CustomTextAppearance"
+                app:buttonTint="@color/primaryDarkColor" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/rb_tabarz"
+                style="@style/CustomRadioButtonAppearance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:checked="@{viewmodel.preferredPhoto.equals(PF.BAD_TABARZ)}"
+                android:onClick="@{(v) -> viewmodel.onPreferredPhoto(PF.BAD_TABARZ)}"
+                android:text="Bad Tabarz"
+                android:textAppearance="@style/CustomTextAppearance"
+                app:buttonTint="@color/primaryDarkColor" />
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+</layout>
